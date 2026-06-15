@@ -8,7 +8,7 @@
 ---
 
 ## 📊 Live Dashboard
-🔗 **[View Interactive Dashboard](https://datastudio.google.com/reporting/aaa25d00-0e9b-4db2-867e-b3bb14ed35dd)**
+🔗 **[View Interactive Dashboard](https://datastudio.google.com/u/0/reporting/3c3c16d4-173f-4aac-a598-5b63cc70f721/page/N430F)**
 
 ---
 
@@ -29,16 +29,16 @@ This project answers:
 ## 🖼️ Dashboard Preview
 
 ### Page 1 — Executive Overview
-![Executive Overview](dashboard/Page_1.jpeg)
+![Executive Overview](Dashboard/page1_executive_overview.jpeg)
 
 ### Page 2 — Customer Behavioral Analysis
-![Customer Behavior](dashboard/Page_2.jpeg)
+![Customer Behavior](Dashboard/page2_customer_behavior.jpeg)
 
 ### Page 3 — Revenue & Risk Analysis
-![Revenue Risk](dashboard/Page_3.jpeg)
+![Revenue Risk](Dashboard/page3_revenue_risk.jpeg)
 
 ### Page 4 — Customer Profile Deepdive
-![Customer Profile](dashboard/Page_4.png)
+![Customer Profile](Dashboard/page4_customer_profile.png)
 
 ---
 
@@ -122,12 +122,14 @@ silent-exit/
 │   ├── key_findings.md
 │   └── project_flow.html
 │
-└── dashboard/
-    ├── Page_1.jpeg
-    ├── Page_2.jpeg
-    ├── Page_3.jpeg
-    └── Page_4.png
-```
+|── dashboard/
+|   ├── Page_1.jpeg
+|   ├── Page_2.jpeg
+|   ├── Page_3.jpeg
+|   └── Page_4.png
+└── Data/
+    ├── customers_raw.jpeg
+    └── customers_clean.png
 
 ---
 
@@ -219,5 +221,5 @@ Membership · Gender · Age Group · Acquisition Channel · Device · Payment ·
 ---
 
 ## 👤 Author
-**[Your Name]**  
-[LinkedIn](your-linkedin-url) · [Live Dashboard](https://datastudio.google.com/reporting/aaa25d00-0e9b-4db2-867e-b3bb14ed35dd)
+**Poojitha Attili**  
+[LinkedIn](https://www.linkedin.com/in/poojitha-attili/) 
