@@ -37,6 +37,8 @@ This project answers:
 ### Page 3 — Revenue & Risk Analysis
 ![Revenue Risk](dashboard/page3_revenue_risk.png)
 
+### Page 4 — Customer Profile DeepDive
+![Customer Profile](dashboard/page4_customer_profile.png)
 ---
 
 ## 🔑 Key Findings
@@ -113,7 +115,9 @@ silent-exit/
 └── dashboard/
     ├── page1_executive_overview.png
     ├── page2_customer_behavior.png
-    └── page3_revenue_risk.png
+    |── page3_revenue_risk.png
+    └── page4_customer_profile.png
+
 ```
 
 ---
