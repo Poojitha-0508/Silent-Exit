@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Silent Exit — Project Flow</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f5f0;
+    padding: 40px;
+    color: #2c2c2c;
+  }
+  h1 {
+    text-align: center;
+    font-size: 30px;
+    color: #1a1a2e;
+    margin-bottom: 6px;
+    letter-spacing: 3px;
+  }
+  .subtitle {
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 50px;
+  }
+  .flow {
+    display: flex;
+    flex-direction: column;
+    max-width: 950px;
+    margin: 0 auto;
+  }
+  .phase {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 10px;
+  }
+  .phase-left {
+    min-width: 180px;
+    text-align: right;
+    padding-top: 4px;
+  }
+  .phase-num { font-size: 12px; color: #bbb; margin-bottom: 4px; }
+  .phase-name { font-size: 17px; font-weight: 700; color: #1a1a2e; line-height: 1.3; }
+  .connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 40px;
+  }
+  .dot {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px currentColor;
+  }
+  .line { width: 3px; flex: 1; min-height: 50px; background: #ddd; }
+  .card {
+    flex: 1;
+    background: white;
+    border-radius: 14px;
+    padding: 20px 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    border-left: 5px solid;
+    margin-bottom: 20px;
+  }
+  .card-title { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+  .tag {
+    font-size: 12px; padding: 4px 12px;
+    border-radius: 20px; font-weight: 500;
+  }
+  .card-desc { font-size: 13px; color: #666; line-height: 1.7; }
+  .stats-row {
+    display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap;
+  }
+  .stat-box {
+    background: #f8f8f8; border-radius: 10px;
+    padding: 10px 16px; text-align: center; flex: 1; min-width: 90px;
+  }
+  .stat-val { font-size: 18px; font-weight: 800; }
+  .stat-lbl { font-size: 11px; color: #999; margin-top: 2px; }
+
+  .p1 .dot { color: #27ae60; background: #27ae60; }
+  .p1 .card { border-color: #27ae60; }
+  .p1 .tag { background: #e8f8f0; color: #1e8449; }
+  .p1 .stat-val { color: #27ae60; }
+
+  .p2 .dot { color: #f39c12; background: #f39c12; }
+  .p2 .card { border-color: #f39c12; }
+  .p2 .tag { background: #fef9e7; color: #d68910; }
+  .p2 .stat-val { color: #f39c12; }
+
+  .p3 .dot { color: #8e44ad; background: #8e44ad; }
+  .p3 .card { border-color: #8e44ad; }
+  .p3 .tag { background: #f5eef8; color: #7d3c98; }
+  .p3 .stat-val { color: #8e44ad; }
+
+  .p4 .dot { color: #e74c3c; background: #e74c3c; }
+  .p4 .card { border-color: #e74c3c; }
+  .p4 .tag { background: #fdedec; color: #cb4335; }
+  .p4 .stat-val { color: #e74c3c; }
+
+  .p5 .dot { color: #2980b9; background: #2980b9; }
+  .p5 .card { border-color: #2980b9; }
+  .p5 .tag { background: #eaf4fb; color: #1a6fa0; }
+  .p5 .stat-val { color: #2980b9; }
+
+  .p6 .dot { color: #1a1a2e; background: #1a1a2e; }
+  .p6 .card { border-color: #1a1a2e; }
+  .p6 .tag { background: #f0f0f5; color: #1a1a2e; }
+  .p6 .stat-val { color: #1a1a2e; }
+
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .db-page {
+    background: #f8f8fc;
+    border-radius: 10px;
+    padding: 12px 16px;
+    border: 1px solid #e0e0f0;
+  }
+  .db-page-title {
+    font-size: 12px; font-weight: 700;
+    color: #1a1a2e; margin-bottom: 6px;
+  }
+  .db-page-desc { font-size: 11px; color: #777; line-height: 1.5; }
+
+  .footer {
+    text-align: center; margin-top: 40px;
+    font-size: 13px; color: #aaa;
+  }
+  .footer a { color: #2980b9; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<h1>🔇 SILENT EXIT</h1>
+<p class="subtitle">E-Commerce Customer Churn Analysis &nbsp;·&nbsp; BigQuery · SQL · Looker Studio · GCP</p>
+
+<div class="flow">
+
+  <!-- PHASE 1 -->
+  <div class="phase p1">
+    <div class="phase-left">
+      <div class="phase-num">PHASE 01</div>
+      <div class="phase-name">Dataset Generation</div>
+    </div>
+    <div class="connector"><div class="dot"></div><div class="line"></div></div>
+    <div class="card">
+      <div class="card-title">🐍 Synthetic Dataset — Python (pandas + numpy)</div>
+      <div class="tags">
+        <span class="tag">1,05,000 rows</span>
+        <span class="tag">34 columns</span>
+        <span class="tag">Jan 2021 – Jun 2024</span>
+        <span class="tag">Indian ecommerce</span>
+        <span class="tag">15+ quality issues injected</span>
+      </div>
+      <p class="card-desc">Realistic data simulating a real Indian ecommerce platform with intentional data quality issues: null emails, invalid ages, negative spend, membership typos, duplicate records, mixed gender formats, future signup dates, impossible return counts.</p>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase p2">
+    <div class="phase-left">
+      <div class="phase-num">PHASE 02</div>
+      <div class="phase-name">Data Exploration</div>
+    </div>
+    <div class="connector"><div class="dot"></div><div class="line"></div></div>
+    <div class="card">
+      <div class="card-title">🔍 Raw Data Profiling — BigQuery SQL</div>
+      <div class="tags">
+        <span class="tag">NULL counts</span>
+        <span class="tag">Invalid value detection</span>
+        <span class="tag">Duplicate check</span>
+        <span class="tag">Categorical inconsistencies</span>
+        <span class="tag">Date anomalies</span>
+        <span class="tag">Impossible values</span>
+      </div>
+      <p class="card-desc">
+        Identified: ~2,400 null emails &nbsp;·&nbsp; ~500 invalid ages &nbsp;·&nbsp; 182 negative spends &nbsp;·&nbsp;
+        ~1,575 duplicates &nbsp;·&nbsp; ~840 negative days_since_purchase &nbsp;·&nbsp; 50 future signup dates &nbsp;·&nbsp;
+        ~1,050 impossible returns (returns > orders)
+      </p>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase p3">
+    <div class="phase-left">
+      <div class="phase-num">PHASE 03</div>
+      <div class="phase-name">Data Cleaning</div>
+    </div>
+    <div class="connector"><div class="dot"></div><div class="line"></div></div>
+    <div class="card">
+      <div class="card-title">🧹 Production Table — CREATE OR REPLACE TABLE</div>
+      <div class="tags">
+        <span class="tag">CASE WHEN logic</span>
+        <span class="tag">REGEXP_REPLACE</span>
+        <span class="tag">INITCAP / TRIM</span>
+        <span class="tag">NULLIF / COALESCE</span>
+        <span class="tag">ROW_NUMBER + QUALIFY</span>
+        <span class="tag">ABS() for negatives</span>
+        <span class="tag">NTILE window function</span>
+      </div>
+      <p class="card-desc">
+        Raw data never modified. All cleaning saves to <strong>clean_customers</strong> table.
+        Deduplication via ROW_NUMBER() OVER PARTITION BY email + QUALIFY row_num = 1.
+        Age group, recency bucket, is_churned derived columns added during cleaning.
+      </p>
+    </div>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="phase p4">
+    <div class="phase-left">
+      <div class="phase-num">PHASE 04</div>
+      <div class="phase-name">Deep Analysis</div>
+    </div>
+    <div class="connector"><div class="dot"></div><div class="line"></div></div>
+    <div class="card">
+      <div class="card-title">📊 5-Layer Analysis — BigQuery SQL</div>
+      <div class="tags">
+        <span class="tag">Layer 1: Overall KPIs</span>
+        <span class="tag">Layer 2: Recency</span>
+        <span class="tag">Layer 3: Segments</span>
+        <span class="tag">Layer 4: Revenue</span>
+        <span class="tag">Layer 5: RFM Scoring</span>
+      </div>
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-val">33.3%</div>
+          <div class="stat-lbl">Churn Rate</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">52.31%</div>
+          <div class="stat-lbl">365+ day churn</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">₹475.2M</div>
+          <div class="stat-lbl">Revenue Lost</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">48.41%</div>
+          <div class="stat-lbl">None-tier churn</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">4,400</div>
+          <div class="stat-lbl">High Risk</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">₹3.7M</div>
+          <div class="stat-lbl">At Risk</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 5 -->
+  <div class="phase p5">
+    <div class="phase-left">
+      <div class="phase-num">PHASE 05</div>
+      <div class="phase-name">Views & RFM Model</div>
+    </div>
+    <div class="connector"><div class="dot"></div><div class="line"></div></div>
+    <div class="card">
+      <div class="card-title">🗃️ 4 Looker Studio Views + Rule-Based Risk Model</div>
+      <div class="tags">
+        <span class="tag">kpi_summary</span>
+        <span class="tag">segment_churn</span>
+        <span class="tag">churn_trend</span>
+        <span class="tag">risk_scores</span>
+        <span class="tag">rfm_scores (base)</span>
+        <span class="tag">Risk score 0–100</span>
+        <span class="tag">No ML needed</span>
+      </div>
+      <p class="card-desc">
+        RFM scoring: Recency (40pts) + Frequency (20pts) + Membership (15pts) + Spend (15pts) + Complaints (10pts) = 0–100 risk score.<br>
+        Risk Tiers: 🔴 High ≥70 &nbsp;·&nbsp; 🟡 Medium 40–69 &nbsp;·&nbsp; 🟢 Low &lt;40<br>
+        Result: 4,400 High Risk · 24,183 Medium Risk · ~59,492 Low Risk
+      </p>
+    </div>
+  </div>
+
+  <!-- PHASE 6 -->
+  <div class="phase p6">
+    <div class="phase-left">
+      <div class="phase-num">PHASE 06</div>
+      <div class="phase-name">Dashboard</div>
+    </div>
+    <div class="connector"><div class="dot"></div></div>
+    <div class="card">
+      <div class="card-title">📈 4-Page Interactive Dashboard — Looker Studio</div>
+      <div class="tags">
+        <span class="tag">4 pages</span>
+        <span class="tag">Navigation panel</span>
+        <span class="tag">Interactive filters</span>
+        <span class="tag">KPI scorecards</span>
+        <span class="tag">Insight notes</span>
+        <span class="tag">India geo map</span>
+      </div>
+      <div class="dashboard-grid">
+        <div class="db-page">
+          <div class="db-page-title">📋 Page 1 — Executive Overview</div>
+          <div class="db-page-desc">
+            KPIs: 89,075 customers · 33.3% churn · ₹475.2M lost · 59,411 active<br>
+            Charts: Monthly churn trend · Membership tier churn · Revenue impact donut
+          </div>
+        </div>
+        <div class="db-page">
+          <div class="db-page-title">👥 Page 2 — Customer Behavioral Analysis</div>
+          <div class="db-page-desc">
+            Recency: 365+ days → 52.31% vs 13.88% recent<br>
+            Charts: Recency buckets · Channel treemap · Age group · Device · Gender
+          </div>
+        </div>
+        <div class="db-page">
+          <div class="db-page-title">💰 Page 3 — Revenue & Risk Analysis</div>
+          <div class="db-page-desc">
+            KPIs: 4,400 High Risk · 24,183 Medium · ₹3.7M at risk · Score: 31.8<br>
+            Charts: Risk tier donut · Revenue by tier · RFM segments · Top 10 risk table
+          </div>
+        </div>
+        <div class="db-page">
+          <div class="db-page-title">🗺️ Page 4 — Customer Profile Deepdive</div>
+          <div class="db-page-desc">
+            India geo map (churn by state) · Top 5 categories · Payment distribution (UPI 29.6%) · Subcategories by revenue treemap
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>
+    🔗 <a href="https://datastudio.google.com/reporting/aaa25d00-0e9b-4db2-867e-b3bb14ed35dd">View Live Dashboard</a>
+    &nbsp;·&nbsp; Built with BigQuery SQL + Looker Studio &nbsp;·&nbsp; No ML Required
+  </p>
+</div>
+
+</body>
+</html>
