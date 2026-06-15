@@ -39,22 +39,21 @@ This project answers:
 
 ### Page 4 — Customer Profile DeepDive
 ![Customer Profile](dashboard/page4_customer_profile.png)
+
 ---
 
 ## 🔑 Key Findings
 
 | # | Finding | Number |
 |---|---------|--------|
-| 1 | Overall churn rate | **37.43%** |
-| 2 | Total customers churned | **33,340** |
-| 3 | Revenue lost to churn | **₹543.6M** |
-| 4 | Churn rate — 365+ day inactive customers | **54.48%** |
-| 5 | Churn rate — recently active customers | **16.47%** |
-| 6 | None-tier member churn rate | **53.08%** |
-| 7 | Platinum member churn rate | **23.68%** |
-| 8 | High risk active customers | **9,069** |
-| 9 | Revenue at immediate risk | **₹9.84M** |
-| 10 | Churn growth 2021 → 2023 | **1.5K → 14K (9x)** |
+| 1 | Overall churn rate | **33.3%** |
+| 2 | Total customers churned | **29,664** |
+| 3 | Revenue lost to churn | **₹475.2M** |
+| 4 | Churn rate — 365+ day inactive customers | **52.31%** |
+| 5 | None-tier member churn rate | **48.41%** |
+| 6 | Platinum member churn rate | **20.37%** |
+| 7 | High risk active customers | **4,400** |
+| 8 | Revenue at immediate risk | **₹3.7M** |
 
 ---
 
@@ -63,8 +62,7 @@ This project answers:
 - **Source:** Synthetically generated realistic Indian e-commerce data
 - **Size:** 1,05,000 rows · 34 columns
 - **Period:** January 2021 – June 2024
-- **Churn Rate:** 37.43%
-- **Total Revenue:** ₹1.92 Billion
+- **Churn Rate:** 33.3%
 
 ### Intentional Data Quality Issues (Real-world simulation)
 
@@ -89,7 +87,7 @@ This project answers:
 |------|---------|
 | **Google BigQuery** | Data storage, cleaning, analysis |
 | **SQL (BigQuery dialect)** | All transformations, window functions, RFM scoring |
-| **Looker Studio** | 3-page interactive dashboard |
+| **Looker Studio** | 4-page interactive dashboard |
 | **Google Cloud Platform** | Cloud infrastructure |
 | **Python (pandas, numpy)** | Dataset generation |
 
@@ -195,8 +193,8 @@ Historical revenue from churned customers · Potential next-order revenue lost �
 
 | Priority | Action | Impact |
 |----------|--------|--------|
-| 🔴 P1 | Contact 9,069 High Risk customers immediately | ₹9.84M saved |
-| 🔴 P1 | Re-engagement campaign after 90 days inactivity | Reduce 54% churn |
+| 🔴 P1 | Contact 4,400 High Risk customers immediately | ₹3.7M saved |
+| 🔴 P1 | Re-engagement campaign after 90 days inactivity | Reduce churn |
 | 🟡 P2 | Push Silver upgrades to None-tier customers | Reduce 53% → 23% churn |
 | 🟡 P2 | Exit surveys for churned customers | Identify root causes |
 | 🟢 P3 | Monthly churn monitoring dashboard | Early warning system |
