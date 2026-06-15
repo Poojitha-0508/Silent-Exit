@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Silent Exit - Project Flow</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f5f0;
+    padding: 40px;
+    color: #2c2c2c;
+  }
+  h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #3d2b1f;
+    margin-bottom: 6px;
+    letter-spacing: 2px;
+  }
+  .subtitle {
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 50px;
+  }
+  .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .phase {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 10px;
+  }
+  .phase-left {
+    min-width: 180px;
+    text-align: right;
+  }
+  .phase-num {
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 4px;
+  }
+  .phase-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #3d2b1f;
+  }
+  .connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 40px;
+  }
+  .dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+  .line {
+    width: 3px;
+    flex: 1;
+    min-height: 60px;
+    background: #d4c5a9;
+  }
+  .card {
+    flex: 1;
+    background: white;
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    border-left: 5px solid;
+    margin-bottom: 20px;
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .card-items {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tag {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .card-desc {
+    font-size: 13px;
+    color: #666;
+    margin-top: 8px;
+    line-height: 1.6;
+  }
+
+  /* Phase colors */
+  .p1 .dot { background: #6b8f71; }
+  .p1 .card { border-color: #6b8f71; }
+  .p1 .tag { background: #e8f5e9; color: #2e7d32; }
+
+  .p2 .dot { background: #8b6914; }
+  .p2 .card { border-color: #8b6914; }
+  .p2 .tag { background: #fff8e1; color: #8b6914; }
+
+  .p3 .dot { background: #5b5ea6; }
+  .p3 .card { border-color: #5b5ea6; }
+  .p3 .tag { background: #ede7f6; color: #4527a0; }
+
+  .p4 .dot { background: #c0392b; }
+  .p4 .card { border-color: #c0392b; }
+  .p4 .tag { background: #ffebee; color: #c0392b; }
+
+  .p5 .dot { background: #2980b9; }
+  .p5 .card { border-color: #2980b9; }
+  .p5 .tag { background: #e3f2fd; color: #1565c0; }
+
+  .p6 .dot { background: #3d2b1f; }
+  .p6 .card { border-color: #3d2b1f; }
+  .p6 .tag { background: #efebe9; color: #3e2723; }
+
+  .stats-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .stat-box {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    flex: 1;
+    min-width: 100px;
+  }
+  .stat-val {
+    font-size: 20px;
+    font-weight: 800;
+    color: #3d2b1f;
+  }
+  .stat-lbl {
+    font-size: 11px;
+    color: #999;
+    margin-top: 2px;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 13px;
+    color: #aaa;
+  }
+  .footer a { color: #8b6914; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<h1>SILENT EXIT</h1>
+<p class="subtitle">E-Commerce Customer Churn Analysis | BigQuery | SQL | Looker Studio</p>
+
+<div class="flow">
+
+  <!-- PHASE 1 -->
+  <div class="phase p1">
+    <div class="phase-left">
+      <div class="phase-num">PHASE 01</div>
+      <div class="phase-name">Dataset<br>Generation</div>
+    </div>
+    <div class="connector">
+      <div class="dot"></div>
+      <div class="line"></div>
+    </div>
+    <div class="card">
+      <div class="card-title"> Synthetic Dataset - Python (pandas + numpy)</div>
+      <ul class="card-items">
+        <li class="tag">1,05,000 rows</li>
+        <li class="tag">34 columns</li>
+        <li class="tag">Jan 2021 - Jun 2024</li>
+        <li class="tag">Indian ecommerce data</li>
+        <li class="tag">15+ quality issues injected</li>
+      </ul>
+      <p class="card-desc">Realistic data with intentional issues: null emails, invalid ages, negative spend, membership typos, duplicate records, mixed gender formats, future signup dates.</p>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase p2">
+    <div class="phase-left">
+      <div class="phase-num">PHASE 02</div>
+      <div class="phase-name">Data<br>Exploration</div>
+    </div>
+    <div class="connector">
+      <div class="dot"></div>
+      <div class="line"></div>
+    </div>
+    <div class="card">
+      <div class="card-title"> Raw Data Profiling - BigQuery SQL</div>
+      <ul class="card-items">
+        <li class="tag">NULL counts</li>
+        <li class="tag">Invalid value detection</li>
+        <li class="tag">Duplicate check</li>
+        <li class="tag">Categorical inconsistencies</li>
+        <li class="tag">Date anomalies</li>
+        <li class="tag">Impossible values</li>
+      </ul>
+      <p class="card-desc">Identified: 2,400 null emails - 500 invalid ages - 182 negative spends - 1,575 duplicates - 840 negative days_since_purchase - 50 future signup dates.</p>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase p3">
+    <div class="phase-left">
+      <div class="phase-num">PHASE 03</div>
+      <div class="phase-name">Data<br>Cleaning</div>
+    </div>
+    <div class="connector">
+      <div class="dot"></div>
+      <div class="line"></div>
+    </div>
+    <div class="card">
+      <div class="card-title"> Production Table - CREATE OR REPLACE TABLE</div>
+      <ul class="card-items">
+        <li class="tag">CASE WHEN logic</li>
+        <li class="tag">REGEXP_REPLACE</li>
+        <li class="tag">INITCAP / TRIM</li>
+        <li class="tag">NULLIF / COALESCE</li>
+        <li class="tag">ROW_NUMBER + QUALIFY</li>
+        <li class="tag">ABS() for negatives</li>
+      </ul>
+      <p class="card-desc">Raw data never modified. Cleaned version saved to clean_customers table. Deduplication using ROW_NUMBER() OVER PARTITION BY email + QUALIFY row_num = 1.</p>
+    </div>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="phase p4">
+    <div class="phase-left">
+      <div class="phase-num">PHASE 04</div>
+      <div class="phase-name">Deep<br>Analysis</div>
+    </div>
+    <div class="connector">
+      <div class="dot"></div>
+      <div class="line"></div>
+    </div>
+    <div class="card">
+      <div class="card-title"> 5-Layer Analysis - BigQuery SQL</div>
+      <ul class="card-items">
+        <li class="tag">Layer 1: Overall KPIs</li>
+        <li class="tag">Layer 2: Recency Analysis</li>
+        <li class="tag">Layer 3: Segment Analysis</li>
+        <li class="tag">Layer 4: Revenue Impact</li>
+        <li class="tag">Layer 5: RFM Risk Scoring</li>
+      </ul>
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-val">33.3%</div>
+          <div class="stat-lbl">Churn Rate</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">52.31%</div>
+          <div class="stat-lbl">365+ day churn</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">475.2M</div>
+          <div class="stat-lbl">Revenue Lost</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">4,400</div>
+          <div class="stat-lbl">High Risk</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">3.7M</div>
+          <div class="stat-lbl">At Risk</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 5 -->
+  <div class="phase p5">
+    <div class="phase-left">
+      <div class="phase-num">PHASE 05</div>
+      <div class="phase-name">Views &<br>Modelling</div>
+    </div>
+    <div class="connector">
+      <div class="dot"></div>
+      <div class="line"></div>
+    </div>
+    <div class="card">
+      <div class="card-title"> 4 Looker Studio Views + RFM Model</div>
+      <ul class="card-items">
+        <li class="tag">kpi_summary view</li>
+        <li class="tag">segment_churn view</li>
+        <li class="tag">churn_trend view</li>
+        <li class="tag">risk_scores view</li>
+        <li class="tag">RFM scoring (0-100)</li>
+        <li class="tag">NTILE(5) window functions</li>
+      </ul>
+      <p class="card-desc">Rule-based churn risk score using Recency (40pts) + Frequency (20pts) + Membership (15pts) + Spend (15pts) + Complaints (10pts). No ML required.</p>
+    </div>
+  </div>
+
+  <!-- PHASE 6 -->
+  <div class="phase p6">
+    <div class="phase-left">
+      <div class="phase-num">PHASE 06</div>
+      <div class="phase-name">Dashboard</div>
+    </div>
+    <div class="connector">
+      <div class="dot"></div>
+    </div>
+    <div class="card">
+      <div class="card-title"> 4-Page Interactive Dashboard - Looker Studio</div>
+      <ul class="card-items">
+        <li class="tag">Page 1: Executive Overview</li>
+        <li class="tag">Page 2: Customer Behavior</li>
+        <li class="tag">Page 3: Revenue & Risk</li>
+        <li class="tag">Page 4: Customer Profile Deepdive</li>
+        <li class="tag">Navigation panel</li>
+        <li class="tag">Interactive filters</li>
+        <li class="tag">Business insight notes</li>
+      </ul>
+      <p class="card-desc">
+        Page 1: KPIs + Monthly Trend + Membership Churn + Revenue Donut<br>
+        Page 2: Recency Chart + Channel + Age + Gender + Device Analysis<br>
+        Page 3: Risk Tier KPIs + RFM Segments + Top 10 High Risk Customers Table<br>
+        Page 4: Geo Map + Top Categories + Payment Distribution + Subcategory Revenue Treemap
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>?? <a href="https://datastudio.google.com/reporting/aaa25d00-0e9b-4db2-867e-b3bb14ed35dd">View Live Dashboard</a> &nbsp;·&nbsp; Built with BigQuery SQL + Looker Studio</p>
+</div>
+
+</body>
+</html>
