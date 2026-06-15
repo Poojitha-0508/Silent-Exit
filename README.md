@@ -29,16 +29,16 @@ This project answers:
 ## 🖼️ Dashboard Preview
 
 ### Page 1 — Executive Overview
-![Executive Overview](dashboard/page1_executive_overview.png)
+![Executive Overview](Dashboard/page1_executive_overview.png)
 
 ### Page 2 — Customer & Behavior Analysis
-![Customer Behavior](dashboard/page2_customer_behavior.png)
+![Customer Behavior](Dashboard/page2_customer_behavior.png)
 
 ### Page 3 — Revenue & Risk Analysis
-![Revenue Risk](dashboard/page3_revenue_risk.png)
+![Revenue Risk](Dashboard/page3_revenue_risk.png)
 
 ### Page 4 — Customer Profile DeepDive
-![Customer Profile](dashboard/page4_customer_profile.png)
+![Customer Profile](Dashboard/page4_customer_profile.png)
 
 ---
 
