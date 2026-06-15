@@ -8,7 +8,7 @@
 ---
 
 ## 📊 Live Dashboard
-🔗 **[View Interactive Dashboard](https://datastudio.google.com/reporting/aaa25d00-0e9b-4db2-867e-b3bb14ed35dd)**
+🔗 **[View Interactive Dashboard]((https://datastudio.google.com/u/0/reporting/3c3c16d4-173f-4aac-a598-5b63cc70f721/page/N430F))**
 
 ---
 
